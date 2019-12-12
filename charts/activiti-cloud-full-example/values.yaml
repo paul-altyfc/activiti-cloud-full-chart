@@ -76,8 +76,8 @@ activiti-cloud-modeling:
       pullPolicy: Always
   backend:    
     image:
-      repository: activiti/activiti-cloud-modeling
-      #tag: 7.1.0.M4
+      repository: silviucpopa/activiti-cloud-modeling
+      tag: latest
       pullPolicy: Always
 
   ingress:
