@@ -121,6 +121,7 @@ activiti-cloud-query:
     #tag: 7.1.0.M4
   postgres:
     enabled: true
+    name: postgres-query
   extraEnv: |
     - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
       value: "true"
@@ -153,6 +154,8 @@ activiti-cloud-notifications-graphql:
     pullPolicy: Always
     repository: activiti/activiti-cloud-notifications-graphql
     #tag: 7.1.0.M4
+  postgres:
+    name: postgres-query
 
 activiti-cloud-audit:
   service: 
@@ -163,6 +166,7 @@ activiti-cloud-audit:
     #tag: 7.1.0.M4
   postgres:
     enabled: true
+    name: postgres-audit
   extraEnv: |
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_PARTITIONED
       value: "true"
@@ -204,7 +208,27 @@ postgres:
   postgresqlPassword: password
   resources:
     requests:
-      cpu: 1000m
+      cpu: 500m
+      memory: 2048Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
+
+postgres-query:
+  enabled: true
+  postgresqlPassword: password
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
+
+postgres-audit:
+  enabled: true
+  postgresqlPassword: password
+  resources:
+    requests:
+      cpu: 500m
       memory: 2048Mi
   postgresqlExtendedConf:
     maxConnections: 500
