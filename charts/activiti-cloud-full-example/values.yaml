@@ -206,6 +206,8 @@ postgres:
     requests:
       cpu: 350m
       memory: 512Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
 
 rabbitmq:
   enabled: true
