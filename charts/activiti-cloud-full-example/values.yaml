@@ -204,8 +204,8 @@ postgres:
   postgresqlPassword: password
   resources:
     requests:
-      cpu: 350m
-      memory: 512Mi
+      cpu: 1000m
+      memory: 2048Mi
   postgresqlExtendedConf:
     maxConnections: 500
 
