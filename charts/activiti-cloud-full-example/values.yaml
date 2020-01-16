@@ -108,7 +108,7 @@ runtime-bundle:
     #tag: 7.1.0.M4
   extraEnv: |
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITIONCOUNT
-      value:  "1"
+      value:  "2"
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITIONKEYEXPRESSION
       value: "headers['processInstanceId']?:'0'"
 
@@ -127,6 +127,22 @@ activiti-cloud-query:
       value: "true"
     - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCEINDEX
       value: "0"
+
+activiti-cloud-query2:
+  service: 
+    name: query2
+  image:
+    pullPolicy: Always
+    repository: activiti/activiti-cloud-query
+    #tag: 7.1.0.M4
+  postgres:
+    enabled: true
+    name: postgres-query
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+      value: "true"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCEINDEX
+      value: "1"
 
 activiti-cloud-messages:
   enabled: true
@@ -172,6 +188,22 @@ activiti-cloud-audit:
       value: "true"
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_INSTANCEINDEX
       value: "0"
+
+activiti-cloud-audit2:
+  service: 
+    name: audit2
+  image:
+    pullPolicy: Always
+    repository: activiti/activiti-cloud-audit
+    #tag: 7.1.0.M4
+  postgres:
+    enabled: true
+    name: postgres-audit
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_PARTITIONED
+      value: "true"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_INSTANCEINDEX
+      value: "1"
 
 activiti-cloud-identity:
   enabled: true
