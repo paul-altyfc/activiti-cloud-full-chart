@@ -150,8 +150,8 @@ activiti-cloud-notifications-graphql:
   postgres:
     name: postgres-query
   extraEnv: |
-    - name: SPRING_AUTOCONFIGURE_EXCLUDE
-      value: "org.activiti.cloud.services.notifications.graphql.events.consumer.EngineEventsConsumerAutoConfiguration"  
+    - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_CONCURRENCY
+      value: "1"
     {{- if include "common.ingress-path" . }}
     - name: SERVER_SERVLET_CONTEXTPATH
       value: {{ include "common.ingress-path" . | quote }}
