@@ -139,7 +139,7 @@ activiti-cloud-connector:
     #tag: 7.1.0.M4
 
 activiti-cloud-notifications-graphql:
-  replicaCount: 2
+  replicaCount: 3
   enabled: true
   service: 
     name: notifications
@@ -151,9 +151,9 @@ activiti-cloud-notifications-graphql:
     name: postgres-query
   extraEnv: |
     - name: SERVER_TOMCAT_MINSPARETHREADS
-      value: "220"
+      value: "100"
     - name: SERVER_TOMCAT_MAXTHREADS
-      value: "300"
+      value: "200"
     - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_CONCURRENCY
       value: "1"
     {{- if include "common.ingress-path" . }}
