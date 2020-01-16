@@ -151,7 +151,7 @@ activiti-cloud-notifications-graphql:
     name: postgres-query
   extraEnv: |
     - name: SPRING_AUTOCONFIGURE_EXCLUDE
-      value: "org.springframework.boot.autoconfigure.amqp.RabbitAutoConfiguration"  
+      value: "org.activiti.cloud.services.notifications.graphql.events.consumer.EngineEventsConsumerAutoConfiguration"  
     {{- if include "common.ingress-path" . }}
     - name: SERVER_SERVLET_CONTEXTPATH
       value: {{ include "common.ingress-path" . | quote }}
