@@ -151,7 +151,9 @@ activiti-cloud-notifications-graphql:
     name: postgres-query
   extraEnv: |
     - name: SERVER_TOMCAT_MINSPARETHREADS
-      value: "100"
+      value: "220"
+    - name: SERVER_TOMCAT_MAXTHREADS
+      value: "300"
     - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_CONCURRENCY
       value: "1"
     {{- if include "common.ingress-path" . }}
