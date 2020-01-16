@@ -107,6 +107,11 @@ runtime-bundle:
     pullPolicy: Always
     repository: activiti/example-runtime-bundle
     #tag: 7.1.0.M4
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITIONCOUNT
+      value:  "1"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITIONKEYEXPRESSION
+      value: "headers['processInstanceId']?:'0'"
 
 activiti-cloud-query:
   replicaCount: 1
@@ -124,6 +129,10 @@ activiti-cloud-query:
       value: "20"
     - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
       value: "1"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+      value: "true"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCEINDEX
+      value: "0"
 
 activiti-cloud-messages:
   enabled: true
@@ -182,6 +191,10 @@ activiti-cloud-audit:
       value: "20"
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_CONCURRENCY
       value: "1"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_PARTITIONED
+      value: "true"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_INSTANCEINDEX
+      value: "0"
 
 activiti-cloud-identity:
   enabled: true
