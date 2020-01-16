@@ -120,8 +120,10 @@ activiti-cloud-query:
     enabled: true
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
+    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
       value: "20"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
+      value: "1"
 
 activiti-cloud-messages:
   enabled: true
@@ -155,8 +157,6 @@ activiti-cloud-notifications-graphql:
   extraEnv: |
     - name: SERVER_TOMCAT_MINSPARETHREADS
       value: "100"
-    - name: SERVER_TOMCAT_MAXTHREADS
-      value: "200"
     - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_CONCURRENCY
       value: "1"
     - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_PREFETCH
@@ -178,8 +178,10 @@ activiti-cloud-audit:
     enabled: true
     name: postgres-audit
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_AUDITCONSUMER_CONSUMER_PREFETCH
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_PREFETCH
       value: "20"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_CONCURRENCY
+      value: "1"
 
 activiti-cloud-identity:
   enabled: true
