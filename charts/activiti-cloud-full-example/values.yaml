@@ -150,7 +150,7 @@ activiti-cloud-notifications-graphql:
   postgres:
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_DEFAULT_CONSUMER_AUTOSTARTUP
+    - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_AUTOSTARTUP
       value: "false"  
     {{- if include "common.ingress-path" . }}
     - name: SERVER_SERVLET_CONTEXTPATH
