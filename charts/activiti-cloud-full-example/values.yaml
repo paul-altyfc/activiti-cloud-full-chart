@@ -121,7 +121,7 @@ activiti-cloud-query:
     name: postgres-query
   extraEnv: |
     - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
-      value: 20
+      value: "20"
 
 activiti-cloud-messages:
   enabled: true
@@ -160,7 +160,7 @@ activiti-cloud-notifications-graphql:
     - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_CONCURRENCY
       value: "1"
     - name: SPRING_CLOUD_STREAM_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_PREFETCH
-      value: 20
+      value: "20"
     {{- if include "common.ingress-path" . }}
     - name: SERVER_SERVLET_CONTEXTPATH
       value: {{ include "common.ingress-path" . | quote }}
@@ -179,7 +179,7 @@ activiti-cloud-audit:
     name: postgres-audit
   extraEnv: |
     - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_AUDITCONSUMER_CONSUMER_PREFETCH
-      value: 20
+      value: "20"
 
 activiti-cloud-identity:
   enabled: true
