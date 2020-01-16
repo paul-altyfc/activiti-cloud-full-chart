@@ -99,6 +99,7 @@ activiti-cloud-modeling:
       annotations: {}
 
 runtime-bundle:
+  replicaCount: 2
   enabled: true
   service: 
     name: rb
@@ -108,7 +109,7 @@ runtime-bundle:
     #tag: 7.1.0.M4
 
 activiti-cloud-query:
-  replicaCount: 2
+  replicaCount: 4
   service: 
     name: query
   image:
@@ -138,6 +139,7 @@ activiti-cloud-connector:
     #tag: 7.1.0.M4
 
 activiti-cloud-notifications-graphql:
+  replicaCount: 2
   enabled: true
   service: 
     name: notifications
@@ -156,7 +158,7 @@ activiti-cloud-notifications-graphql:
     {{- end }}
 
 activiti-cloud-audit:
-  replicaCount: 2
+  replicaCount: 4
   service: 
     name: audit
   image:
@@ -184,6 +186,7 @@ activiti-keycloak:
         sed -i 's/placeholder.com/*/g' activiti-realm.json
   
 activiti-cloud-gateway:
+  replicaCount: 2
   service:
     name: activiti-cloud-gateway
   image:
@@ -242,7 +245,7 @@ rabbitmq:
       memory: 512Mi
   rbac:
     create: true
-  replicaCount: 1
+  replicaCount: 3
   ingress:
     enabled: true
     hostName: "rabbitmq.feature-aae-731.35.228.195.195.nip.io"
