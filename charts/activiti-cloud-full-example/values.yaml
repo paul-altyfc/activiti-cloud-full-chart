@@ -99,7 +99,7 @@ activiti-cloud-modeling:
       annotations: {}
 
 runtime-bundle:
-  replicaCount: 2
+  replicaCount: 1
   enabled: true
   service: 
     name: rb
@@ -109,7 +109,7 @@ runtime-bundle:
     #tag: 7.1.0.M4
 
 activiti-cloud-query:
-  replicaCount: 4
+  replicaCount: 1
   service: 
     name: query
   image:
@@ -139,7 +139,7 @@ activiti-cloud-connector:
     #tag: 7.1.0.M4
 
 activiti-cloud-notifications-graphql:
-  replicaCount: 3
+  replicaCount: 1
   enabled: true
   service: 
     name: notifications
@@ -162,7 +162,7 @@ activiti-cloud-notifications-graphql:
     {{- end }}
 
 activiti-cloud-audit:
-  replicaCount: 4
+  replicaCount: 1
   service: 
     name: audit
   image:
@@ -190,7 +190,7 @@ activiti-keycloak:
         sed -i 's/placeholder.com/*/g' activiti-realm.json
   
 activiti-cloud-gateway:
-  replicaCount: 2
+  replicaCount: 1
   service:
     name: activiti-cloud-gateway
   image:
