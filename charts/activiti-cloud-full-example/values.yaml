@@ -147,6 +147,13 @@ activiti-cloud-notifications-graphql:
     #tag: 7.1.0.M4
   postgres:
     name: postgres-query
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_DEFAULT_CONSUMER_AUTOSTARTUP
+      value: "false"  
+    {{- if include "common.ingress-path" . }}
+    - name: SERVER_SERVLET_CONTEXTPATH
+      value: {{ include "common.ingress-path" . | quote }}
+    {{- end }}
 
 activiti-cloud-audit:
   replicaCount: 2
