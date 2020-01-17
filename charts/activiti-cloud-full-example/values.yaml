@@ -99,7 +99,7 @@ activiti-cloud-modeling:
       annotations: {}
 
 runtime-bundle:
-  replicaCount: 1
+  replicaCount: 2
   enabled: true
   service: 
     name: rb
@@ -297,7 +297,7 @@ activiti-keycloak:
         sed -i 's/placeholder.com/*/g' activiti-realm.json
   
 activiti-cloud-gateway:
-  replicaCount: 1
+  replicaCount: 2
   service:
     name: activiti-cloud-gateway
   image:
