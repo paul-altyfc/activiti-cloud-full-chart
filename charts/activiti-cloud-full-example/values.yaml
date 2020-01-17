@@ -113,10 +113,10 @@ runtime-bundle:
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
       value: "T(java.lang.Math).random()*100"
 
-activiti-cloud-query0:
+activiti-cloud-query:
   replicaCount: 1
   service: 
-    name: query-0
+    name: query
   image:
     pullPolicy: Always
     repository: activiti/activiti-cloud-query
