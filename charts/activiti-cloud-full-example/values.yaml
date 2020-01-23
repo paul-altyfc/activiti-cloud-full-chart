@@ -111,7 +111,9 @@ runtime-bundle:
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_COUNT
       value:  "5"
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
-      value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
+      value: "headers['processInstanceId']?:'0'"
+    # - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
+    #   value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
 
 activiti-cloud-query:
   replicaCount: 1
