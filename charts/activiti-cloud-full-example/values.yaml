@@ -240,7 +240,7 @@ activiti-cloud-notifications-graphql:
     {{- end }}
 
 activiti-cloud-audit:
-  replicaCount: 2
+  replicaCount: 1
   service: 
     name: audit
   image:
@@ -251,10 +251,78 @@ activiti-cloud-audit:
     enabled: true
     name: postgres-audit
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_AUDITCONSUMER_CONSUMER_PREFETCH
-      value: "10"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITCONSUMER_CONSUMER_CONCURRENCY
-      value: "10"
+    - name: ACT_AUDIT_CONSUMER_PARTITIONED
+      value: "true"
+    - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
+      value: "0"
+
+activiti-cloud-audit-1:
+  replicaCount: 1
+  service: 
+    name: audit-1
+  image:
+    pullPolicy: Always
+    repository: activiti/activiti-cloud-audit
+    #tag: 7.1.0.M4
+  postgres:
+    enabled: true
+    name: postgres-audit
+  extraEnv: |
+    - name: ACT_AUDIT_CONSUMER_PARTITIONED
+      value: "true"
+    - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
+      value: "1"
+
+activiti-cloud-audit-2:
+  replicaCount: 1
+  service: 
+    name: audit-2
+  image:
+    pullPolicy: Always
+    repository: activiti/activiti-cloud-audit
+    #tag: 7.1.0.M4
+  postgres:
+    enabled: true
+    name: postgres-audit
+  extraEnv: |
+    - name: ACT_AUDIT_CONSUMER_PARTITIONED
+      value: "true"
+    - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
+      value: "2"
+
+activiti-cloud-audit-3:
+  replicaCount: 1
+  service: 
+    name: audit-3
+  image:
+    pullPolicy: Always
+    repository: activiti/activiti-cloud-audit
+    #tag: 7.1.0.M4
+  postgres:
+    enabled: true
+    name: postgres-audit
+  extraEnv: |
+    - name: ACT_AUDIT_CONSUMER_PARTITIONED
+      value: "true"
+    - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
+      value: "3"
+
+activiti-cloud-audit-4:
+  replicaCount: 1
+  service: 
+    name: audit-4
+  image:
+    pullPolicy: Always
+    repository: activiti/activiti-cloud-audit
+    #tag: 7.1.0.M4
+  postgres:
+    enabled: true
+    name: postgres-audit
+  extraEnv: |
+    - name: ACT_AUDIT_CONSUMER_PARTITIONED
+      value: "true"
+    - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
+      value: "4"
 
 activiti-cloud-identity:
   enabled: true
