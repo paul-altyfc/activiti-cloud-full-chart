@@ -125,13 +125,9 @@ activiti-cloud-query:
     enabled: true
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
-      value: "10"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
-      value: "5"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+    - name: ACT_QUERY_CONSUMER_PARTITIONED
       value: "true"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCE_INDEX
+    - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "0"
 
 activiti-cloud-query1:
@@ -146,13 +142,9 @@ activiti-cloud-query1:
     enabled: true
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
-      value: "10"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
-      value: "5"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+    - name: ACT_QUERY_CONSUMER_PARTITIONED
       value: "true"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCE_INDEX
+    - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "1"
 
 activiti-cloud-query2:
@@ -167,13 +159,9 @@ activiti-cloud-query2:
     enabled: true
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
-      value: "10"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
-      value: "5"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+    - name: ACT_QUERY_CONSUMER_PARTITIONED
       value: "true"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCE_INDEX
+    - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "2"
 
 activiti-cloud-query3:
@@ -188,13 +176,9 @@ activiti-cloud-query3:
     enabled: true
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
-      value: "10"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
-      value: "5"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+    - name: ACT_QUERY_CONSUMER_PARTITIONED
       value: "true"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCE_INDEX
+    - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "3"
 
 activiti-cloud-query4:
@@ -209,13 +193,9 @@ activiti-cloud-query4:
     enabled: true
     name: postgres-query
   extraEnv: |
-    - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_QUERYCONSUMER_CONSUMER_PREFETCH
-      value: "10"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_CONCURRENCY
-      value: "5"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_PARTITIONED
+    - name: ACT_QUERY_CONSUMER_PARTITIONED
       value: "true"
-    - name: SPRING_CLOUD_STREAM_BINDINGS_QUERYCONSUMER_CONSUMER_INSTANCE_INDEX
+    - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "4"
 
 activiti-cloud-messages:
