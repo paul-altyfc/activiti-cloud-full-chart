@@ -163,6 +163,10 @@ activiti-cloud-query2:
     enabled: true
     name: postgres-query
   extraEnv: |
+    - name: ACT_QUERY_CONSUMER_PARTITIONED
+      value: "true"
+    - name: ACT_QUERY_CONSUMER_PREFETCH
+      value: "10"
     - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "2"
 
