@@ -258,7 +258,7 @@ activiti-cloud-notifications-graphql:
     - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
       value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
     - name: STAGEMONITOR_INSTRUMENT_INCLUDE
-      value: 'org.activiti.cloud.services'
+      value: 'org.activiti.cloud.services,graphql,com.introproventures.graphql'
     {{- if include "common.ingress-path" . }}
     - name: SERVER_SERVLET_CONTEXTPATH
       value: {{ include "common.ingress-path" . | quote }}
