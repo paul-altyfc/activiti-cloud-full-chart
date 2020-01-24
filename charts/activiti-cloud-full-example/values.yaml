@@ -240,6 +240,10 @@ activiti-cloud-notifications-graphql:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-notifications-graphql
     tag: AAE-731
+  resources:
+    requests:
+      cpu: 1000m
+      memory: 1024Mi
   postgres:
     name: postgres-query
   extraEnv: |
