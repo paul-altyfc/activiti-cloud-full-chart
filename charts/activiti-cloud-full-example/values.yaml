@@ -63,6 +63,11 @@ global:
     # domain: *domain ## Sync with Jx expose controller domain conig 
     # http: *http ## Sync with Jx expose controller http conig
     # tlsacme: *tlsacme ## Sync with Jx expose controller tlsacme conig
+  stagemonitor:
+    active: true
+    reporting:
+      elasticsearch:
+        url: https://search-activiti-stagemonitor-uw2t4524hl7jvjzthwzyod7ceq.ap-southeast-2.es.amazonaws.com
 
 
 activiti-cloud-modeling:
@@ -111,9 +116,7 @@ runtime-bundle:
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_COUNT
       value:  "5"
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
-      value: "headers['processInstanceId']?:'0'"
-    # - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
-    #   value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
+      value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
 
 activiti-cloud-query:
   replicaCount: 1
@@ -235,8 +238,8 @@ activiti-cloud-notifications-graphql:
     name: notifications
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-notifications-graphql
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-notifications-graphql
+    tag: AAE-731
   postgres:
     name: postgres-query
   extraEnv: |
@@ -246,6 +249,16 @@ activiti-cloud-notifications-graphql:
       value: "1"
     - name: SPRING_CLOUD_STREAM_RABBIT_BINDINGS_GRAPHQLENGINEEVENTSCONSUMERSOURCE_CONSUMER_PREFETCH
       value: "40"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services'
     {{- if include "common.ingress-path" . }}
     - name: SERVER_SERVLET_CONTEXTPATH
       value: {{ include "common.ingress-path" . | quote }}
