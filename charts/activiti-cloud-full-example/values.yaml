@@ -429,10 +429,11 @@ rabbitmq:
   rabbitmqUsername: "guest"
   rabbitmqPassword: "guest"
   rabbitmqErlangCookie: 124567890abcdefghijklmnopqrstuv
+  rabbitmqMemoryHighWatermark: 1500MB
   resources:
     requests:
-      cpu: 350m
-      memory: 512Mi
+      cpu: 500m
+      memory: 2048Mi
   rbac:
     create: true
   replicaCount: 3
