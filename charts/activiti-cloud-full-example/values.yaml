@@ -344,7 +344,7 @@ activiti-cloud-audit:
   replicaCount: 1
   service: 
     name: audit
-  livelinessProbe:
+  livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
     initialDelaySeconds: 200
@@ -377,7 +377,7 @@ activiti-cloud-audit-1:
   replicaCount: 1
   service: 
     name: audit-1
-  livelinessProbe:
+  livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
     initialDelaySeconds: 200
@@ -410,7 +410,7 @@ activiti-cloud-audit-2:
   replicaCount: 1
   service: 
     name: audit-2
-  livelinessProbe:
+  livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
     initialDelaySeconds: 200
@@ -443,7 +443,7 @@ activiti-cloud-audit-3:
   replicaCount: 1
   service: 
     name: audit-3
-  livelinessProbe:
+  livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
     initialDelaySeconds: 200
@@ -476,7 +476,7 @@ activiti-cloud-audit-4:
   replicaCount: 1
   service: 
     name: audit-4
-  livelinessProbe:
+  livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
     initialDelaySeconds: 200
