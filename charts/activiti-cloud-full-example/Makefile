@@ -52,8 +52,7 @@ install: clean build
 		--install \
 		--set global.gateway.domain=${GLOBAL_GATEWAY_DOMAIN} \
 		--namespace ${PREVIEW_NAMESPACE} \
-		--debug \
-		--wait 
+		--debug
 
 upgrade: clean build
 	helm upgrade ${HELM_RELEASE_NAME} .
