@@ -314,7 +314,7 @@ activiti-cloud-notifications-graphql:
     tag: AAE-731
   resources:
     requests:
-      cpu: 1000m
+      cpu: 500m
       memory: 1024Mi
   postgres:
     name: postgres-query
