@@ -110,8 +110,8 @@ runtime-bundle:
     name: rb
   image:
     pullPolicy: Always
-    repository: activiti/example-runtime-bundle
-    #tag: 7.1.0.M4
+    repository: introproventures/example-runtime-bundle
+    tag: AAE-731
   extraEnv: |
     - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_COUNT
       value:  "5"
@@ -124,8 +124,8 @@ activiti-cloud-query:
     name: query
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-query
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-query
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-query
@@ -136,6 +136,16 @@ activiti-cloud-query:
       value: "30"
     - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "0"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-query1:
   replicaCount: 1
@@ -143,8 +153,8 @@ activiti-cloud-query1:
     name: query-1
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-query
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-query
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-query
@@ -155,6 +165,16 @@ activiti-cloud-query1:
       value: "30"
     - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "1"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-query2:
   replicaCount: 1
@@ -162,8 +182,8 @@ activiti-cloud-query2:
     name: query-2
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-query
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-query
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-query
@@ -174,6 +194,16 @@ activiti-cloud-query2:
       value: "30"
     - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "2"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-query3:
   replicaCount: 1
@@ -181,8 +211,8 @@ activiti-cloud-query3:
     name: query-3
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-query
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-query
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-query
@@ -193,6 +223,16 @@ activiti-cloud-query3:
       value: "30"
     - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "3"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-query4:
   replicaCount: 1
@@ -200,8 +240,8 @@ activiti-cloud-query4:
     name: query-4
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-query
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-query
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-query
@@ -212,6 +252,16 @@ activiti-cloud-query4:
       value: "30"
     - name: ACT_QUERY_CONSUMER_INSTANCE_INDEX
       value: "4"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-messages:
   enabled: true
@@ -274,8 +324,8 @@ activiti-cloud-audit:
     name: audit
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-audit
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-audit
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-audit
@@ -286,6 +336,16 @@ activiti-cloud-audit:
       value: "30"
     - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
       value: "0"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-audit-1:
   replicaCount: 1
@@ -293,8 +353,8 @@ activiti-cloud-audit-1:
     name: audit-1
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-audit
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-audit
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-audit
@@ -305,6 +365,16 @@ activiti-cloud-audit-1:
       value: "30"
     - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
       value: "1"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-audit-2:
   replicaCount: 1
@@ -312,8 +382,8 @@ activiti-cloud-audit-2:
     name: audit-2
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-audit
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-audit
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-audit
@@ -324,6 +394,16 @@ activiti-cloud-audit-2:
       value: "30"
     - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
       value: "2"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-audit-3:
   replicaCount: 1
@@ -331,8 +411,8 @@ activiti-cloud-audit-3:
     name: audit-3
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-audit
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-audit
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-audit
@@ -343,6 +423,16 @@ activiti-cloud-audit-3:
       value: "30"
     - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
       value: "3"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-audit-4:
   replicaCount: 1
@@ -350,8 +440,8 @@ activiti-cloud-audit-4:
     name: audit-4
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-audit
-    #tag: 7.1.0.M4
+    repository: introproventures/activiti-cloud-audit
+    tag: AAE-731
   postgres:
     enabled: true
     name: postgres-audit
@@ -362,6 +452,16 @@ activiti-cloud-audit-4:
       value: "30"
     - name: ACT_AUDIT_CONSUMER_INSTANCE_INDEX
       value: "4"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.springframework.cloud.stream'
 
 activiti-cloud-identity:
   enabled: true
