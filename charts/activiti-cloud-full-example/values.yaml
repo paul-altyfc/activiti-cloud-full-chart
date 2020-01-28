@@ -109,7 +109,7 @@ runtime-bundle:
   service: 
     name: rb
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 120
   image:
     pullPolicy: Always
     repository: introproventures/example-runtime-bundle
@@ -135,7 +135,7 @@ activiti-cloud-query:
   service: 
     name: query
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -166,7 +166,7 @@ activiti-cloud-query1:
   service: 
     name: query-1
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -197,7 +197,7 @@ activiti-cloud-query2:
   service: 
     name: query-2
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -226,7 +226,7 @@ activiti-cloud-query2:
 activiti-cloud-query3:
   replicaCount: 1
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   service: 
     name: query-3
   image:
@@ -259,7 +259,7 @@ activiti-cloud-query4:
   service: 
     name: query-4
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -345,7 +345,7 @@ activiti-cloud-audit:
   service: 
     name: audit
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-audit
@@ -376,7 +376,7 @@ activiti-cloud-audit-1:
   service: 
     name: audit-1
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-audit
@@ -407,7 +407,7 @@ activiti-cloud-audit-2:
   service: 
     name: audit-2
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-audit
@@ -438,7 +438,7 @@ activiti-cloud-audit-3:
   service: 
     name: audit-3
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-audit
@@ -469,7 +469,7 @@ activiti-cloud-audit-4:
   service: 
     name: audit-4
   readinessProbe:
-    initialDelaySeconds: 60
+    initialDelaySeconds: 80
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-audit
