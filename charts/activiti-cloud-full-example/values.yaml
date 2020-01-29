@@ -239,7 +239,7 @@ runtime-bundle-4:
   replicaCount: 1
   enabled: true
   service: 
-    name: rb-3
+    name: rb-4
   postgres:
     enabled: true
     name: postgres-rb-4
