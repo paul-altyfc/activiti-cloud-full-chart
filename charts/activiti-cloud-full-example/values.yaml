@@ -235,6 +235,39 @@ runtime-bundle-3:
     - name: STAGEMONITOR_INSTRUMENT_INCLUDE
       value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
 
+runtime-bundle-4:
+  replicaCount: 1
+  enabled: true
+  service: 
+    name: rb-3
+  postgres:
+    enabled: true
+    name: postgres-rb-4
+  resources:
+    requests:
+      cpu: 500m
+  readinessProbe:
+    initialDelaySeconds: 200
+  image:
+    pullPolicy: Always
+    repository: introproventures/example-runtime-bundle
+    tag: AAE-731
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_COUNT
+      value:  "5"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
+      value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'      
+
 activiti-cloud-query:
   replicaCount: 1
   service: 
@@ -722,6 +755,17 @@ postgres-rb-3:
       memory: 1048Mi
   postgresqlExtendedConf:
     maxConnections: 500
+
+postgres-rb-4:
+  enabled: true
+  postgresqlPassword: password
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
+
 
 postgres-query:
   enabled: true
