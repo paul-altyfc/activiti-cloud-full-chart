@@ -129,7 +129,7 @@ dependencies:
   version: "7.1.0-PR-464-2-SNAPSHOT"
   alias: "runtime-bundle-3"
   condition: "application.runtime-bundle.enabled,runtime-bundle.enabled"
-name: "runtime-bundle"
+- name: "runtime-bundle"
   repository: "http://chartmuseum.jx.35.228.195.195.nip.io"
   version: "7.1.0-PR-464-2-SNAPSHOT"
   alias: "runtime-bundle-4"
