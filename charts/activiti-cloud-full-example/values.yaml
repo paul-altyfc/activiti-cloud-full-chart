@@ -104,10 +104,85 @@ activiti-cloud-modeling:
       annotations: {}
 
 runtime-bundle:
-  replicaCount: 2
+  replicaCount: 1
   enabled: true
   service: 
-    name: rb
+    name: rb-0
+  postgres:
+    enabled: true
+    name: postgres
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  readinessProbe:
+    initialDelaySeconds: 200
+  image:
+    pullPolicy: Always
+    repository: introproventures/example-runtime-bundle
+    tag: AAE-731
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_COUNT
+      value:  "5"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
+      value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
+
+runtime-bundle-1:
+  replicaCount: 1
+  enabled: true
+  service: 
+    name: rb-1
+  postgres:
+    enabled: true
+    name: postgres-1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  readinessProbe:
+    initialDelaySeconds: 200
+  image:
+    pullPolicy: Always
+    repository: introproventures/example-runtime-bundle
+    tag: AAE-731
+  extraEnv: |
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_COUNT
+      value:  "5"
+    - name: SPRING_CLOUD_STREAM_BINDINGS_AUDITPRODUCER_PRODUCER_PARTITION_KEY_EXPRESSION
+      value: "headers['processInstanceId']?:T(java.lang.Math).random()*100"
+    - name: STAGEMONITOR_ACTIVE
+      value: '{{ .Values.global.stagemonitor.active }}'
+    - name: STAGEMONITOR_INSTANCENAME
+      value: '{{ .Release.Name }}'
+    - name: STAGEMONITOR_APPLICATIONNAME
+      value: '{{ .Values.service.name }}'
+    - name: STAGEMONITOR_REPORTING_ELASTICSEARCH_URL
+      value: '{{ .Values.global.stagemonitor.reporting.elasticsearch.url }}'
+    - name: STAGEMONITOR_INSTRUMENT_INCLUDE
+      value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
+
+runtime-bundle-2:
+  replicaCount: 1
+  enabled: true
+  service: 
+    name: rb-2
+  postgres:
+    enabled: true
+    name: postgres-2
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
   readinessProbe:
     initialDelaySeconds: 200
   image:
@@ -537,6 +612,26 @@ activiti-cloud-gateway:
       nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
 
 postgres:
+  enabled: true
+  postgresqlPassword: password
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
+
+postgres-1:
+  enabled: true
+  postgresqlPassword: password
+  resources:
+    requests:
+      cpu: 500m
+      memory: 2048Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
+
+postgres-2:
   enabled: true
   postgresqlPassword: password
   resources:
