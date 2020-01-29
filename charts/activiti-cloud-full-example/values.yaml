@@ -103,7 +103,7 @@ activiti-cloud-modeling:
       prefix: "modeling-service"
       annotations: {}
 
-runtime-bundle:
+rb-0:
   replicaCount: 1
   enabled: true
   service: 
@@ -136,7 +136,7 @@ runtime-bundle:
     - name: STAGEMONITOR_INSTRUMENT_INCLUDE
       value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
 
-runtime-bundle-1:
+rb-1:
   replicaCount: 1
   enabled: true
   service: 
@@ -169,7 +169,7 @@ runtime-bundle-1:
     - name: STAGEMONITOR_INSTRUMENT_INCLUDE
       value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
 
-runtime-bundle-2:
+rb-2:
   replicaCount: 1
   enabled: true
   service: 
@@ -640,13 +640,23 @@ activiti-cloud-gateway:
       nginx.ingress.kubernetes.io/cors-allow-headers: "*"
       nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
 
+postgres:
+  enabled: true
+  postgresqlPassword: password
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
+  postgresqlExtendedConf:
+    maxConnections: 500
+
 postgres-rb-0:
   enabled: true
   postgresqlPassword: password
   resources:
     requests:
       cpu: 500m
-      memory: 2048Mi
+      memory: 1048Mi
   postgresqlExtendedConf:
     maxConnections: 500
 
@@ -656,7 +666,7 @@ postgres-rb-1:
   resources:
     requests:
       cpu: 500m
-      memory: 2048Mi
+      memory: 1048Mi
   postgresqlExtendedConf:
     maxConnections: 500
 
@@ -666,7 +676,7 @@ postgres-rb-2:
   resources:
     requests:
       cpu: 500m
-      memory: 2048Mi
+      memory: 1048Mi
   postgresqlExtendedConf:
     maxConnections: 500
 
