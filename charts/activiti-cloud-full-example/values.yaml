@@ -211,6 +211,10 @@ activiti-cloud-query:
     name: query
   readinessProbe:
     initialDelaySeconds: 200
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -242,6 +246,10 @@ activiti-cloud-query1:
     name: query-1
   readinessProbe:
     initialDelaySeconds: 200
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -273,6 +281,10 @@ activiti-cloud-query2:
     name: query-2
   readinessProbe:
     initialDelaySeconds: 200
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -304,6 +316,10 @@ activiti-cloud-query3:
     initialDelaySeconds: 200
   service: 
     name: query-3
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -335,6 +351,10 @@ activiti-cloud-query4:
     name: query-4
   readinessProbe:
     initialDelaySeconds: 200
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   image:
     pullPolicy: Always
     repository: introproventures/activiti-cloud-query
@@ -419,6 +439,10 @@ activiti-cloud-audit:
   replicaCount: 1
   service: 
     name: audit
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
@@ -452,6 +476,10 @@ activiti-cloud-audit-1:
   replicaCount: 1
   service: 
     name: audit-1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
@@ -483,6 +511,10 @@ activiti-cloud-audit-1:
 
 activiti-cloud-audit-2:
   replicaCount: 1
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   service: 
     name: audit-2
   livenessProbe:
@@ -518,6 +550,10 @@ activiti-cloud-audit-3:
   replicaCount: 1
   service: 
     name: audit-3
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
@@ -551,6 +587,10 @@ activiti-cloud-audit-4:
   replicaCount: 1
   service: 
     name: audit-4
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   livenessProbe:
     initialDelaySeconds: 200
   readinessProbe:
@@ -600,6 +640,10 @@ activiti-cloud-gateway:
   replicaCount: 2
   service:
     name: activiti-cloud-gateway
+  resources:
+    requests:
+      cpu: 500m
+      memory: 1048Mi
   image:
     repository: activiti/activiti-cloud-gateway
     pullPolicy: IfNotPresent
@@ -673,7 +717,7 @@ rabbitmq:
   rabbitmqMemoryHighWatermark: 1500MB
   resources:
     requests:
-      cpu: 500m
+      cpu: 1000m
       memory: 2048Mi
   rbac:
     create: true
