@@ -103,7 +103,7 @@ activiti-cloud-modeling:
       prefix: "modeling-service"
       annotations: {}
 
-rb-0:
+runtime-bundle:
   replicaCount: 1
   enabled: true
   service: 
@@ -136,7 +136,7 @@ rb-0:
     - name: STAGEMONITOR_INSTRUMENT_INCLUDE
       value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
 
-rb-1:
+runtime-bundle-1:
   replicaCount: 1
   enabled: true
   service: 
@@ -169,7 +169,7 @@ rb-1:
     - name: STAGEMONITOR_INSTRUMENT_INCLUDE
       value: 'org.activiti.cloud.services,org.activiti.engine,org.springframework.cloud.stream'
 
-rb-2:
+runtime-bundle-2:
   replicaCount: 1
   enabled: true
   service: 
