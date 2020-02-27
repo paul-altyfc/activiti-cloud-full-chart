@@ -121,8 +121,8 @@ activiti-cloud-query:
     name: query
   image:
     pullPolicy: Always
-    repository: activiti/activiti-cloud-query
-    #tag: 7.1.0.M4
+    repository: davidecerbo/alfresco-process-query-service
+    tag: aee-2026
   postgres:
     enabled: true
   ingress:
