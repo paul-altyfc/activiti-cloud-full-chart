@@ -148,7 +148,52 @@ activiti-cloud-query:
       nginx.ingress.kubernetes.io/session-cookie-hash: "md5"
 
     enabled: true
-    path: /?(.*)
+    path: /query/?(.*)
+
+
+activiti-notification-query:
+  service:
+    name: query
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/cors-allow-header: X-Forwarded-For, X-Forwarded-Proto,
+        X-Forwarded-Port, X-Forwarded-Prefix, Authorization, Content-Type, Accept
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
+
+    notificationsannotations:
+      kubernetes.io/ingress.class: "nginx"
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/cors-allow-headers: "*"
+      nginx.ingress.kubernetes.io/cors-allow-methods: "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+      nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+      nginx.ingress.kubernetes.io/configuration-snippet: |
+        more_set_headers 'Access-Control-Allow-Origin: $http_origin';
+      nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
+      nginx.ingress.kubernetes.io/affinity: cookie
+      nginx.ingress.kubernetes.io/session-cookie-name: "activiti-cloud-notifications-graphql-route"
+      nginx.ingress.kubernetes.io/session-cookie-hash: "md5"
+
+    enabled: true
+    path: /notification/?(.*)
+
+
+activiti-cloud-audit:
+  ingress:
+    annotations:
+      kubernetes.io/ingress.class: nginx
+      nginx.ingress.kubernetes.io/cors-allow-header: X-Forwarded-For, X-Forwarded-Proto,
+        X-Forwarded-Port, X-Forwarded-Prefix, Authorization, Content-Type, Accept
+      nginx.ingress.kubernetes.io/enable-cors: "true"
+      nginx.ingress.kubernetes.io/rewrite-target: /$1
+      nginx.ingress.kubernetes.io/x-forwarded-prefix: "true"
+    enabled: true
+    path: /audit/?(.*)
+  service:
+    name: query
+
 
 activiti-cloud-connector:
   enabled: true
