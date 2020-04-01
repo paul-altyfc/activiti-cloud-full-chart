@@ -117,7 +117,6 @@ runtime-bundle:
     #tag: 7.1.0.M4
 
 activiti-cloud-query:
-  enabled: false
   service:
     name: query
   image:
@@ -128,7 +127,7 @@ activiti-cloud-query:
     enabled: true
 
 activiti-cloud-connector:
-  enabled: false
+  enabled: true
   service:
     name: example-cloud-connector
   image:
